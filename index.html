@@ -15,24 +15,24 @@
 
   <script type="text/javascript">
     var letters = {
-      "D": "Ð", "d": "ð",
-      "T": "Þ", "t": "þ",
-      "W": "Ƿ", "w": "ƿ",
-      "A": "Æ", "a": "æ",
+      "D": "Ð",    "d": "ð",
+      "T": "Þ",    "t": "þ",
+      "W": "Ƿ",    "w": "ƿ",
+      "A": "Æ",    "a": "æ",
     };
 
     var combining = {
       "-": {
-        "A": "Ā", "a": "ā",
-        "E": "Ē", "e": "ē",
-        "I": "Ī", "i": "ī",
-        "O": "Ō", "o": "ō",
-        "U": "Ū", "u": "ū",
-        "Æ": "Ǣ", "æ": "ǣ",
+        "A": "Ā",    "a": "ā",
+        "E": "Ē",    "e": "ē",
+        "I": "Ī",    "i": "ī",
+        "O": "Ō",    "o": "ō",
+        "U": "Ū",    "u": "ū",
+        "Æ": "Ǣ",    "æ": "ǣ",
       },
       ".": {
-        "G": "Ġ", "g": "ġ",
-        "C": "Ċ", "c": "ċ",
+        "G": "Ġ",    "g": "ġ",
+        "C": "Ċ",    "c": "ċ",
       },
     }
 
@@ -55,15 +55,16 @@
 
     inp.onkeydown = function(evt) {
         if (evt.altKey) {
-          if (evt.key in letters) {
-            putAtCursor(letters[evt.key], false);
+          var k = evt.key;
+          if (k in letters) {
+            putAtCursor(letters[k], false);
             return false;
           }
 
-          if (evt.key in combining) {
+          if (k in combining) {
             var prev = inp.value[inp.selectionStart - 1];
-            if (prev in combining[evt.key]) {
-              putAtCursor(combining[evt.key][prev], true);
+            if (prev in combining[k]) {
+              putAtCursor(combining[k][prev], true);
               return false;
             }
           }

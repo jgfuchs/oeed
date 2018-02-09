@@ -34,7 +34,7 @@ window.onload = function() {
     if (tout) {
       clearTimeout(tout);
     }
-    tout = setTimeout(saveText, 250);
+    tout = setTimeout(saveText, 100);
 
     if (evt.altKey) {
       var k = evt.key;

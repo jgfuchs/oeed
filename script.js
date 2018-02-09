@@ -34,7 +34,7 @@ window.onload = function() {
     if (tout) {
       clearTimeout(tout);
     }
-    tout = setTimeout(saveText, 100);
+    tout = setTimeout(() => { window.localStorage.text = inp.value; }, 200);
 
     if (evt.altKey) {
       var key = evt.key;
@@ -78,9 +78,5 @@ window.onload = function() {
 
   function getPrev() {
     return inp.value[inp.selectionStart-1];
-  }
-
-  function saveText() {
-    window.localStorage.text = inp.value;
   }
 };

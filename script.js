@@ -37,27 +37,24 @@ window.onload = function() {
     tout = setTimeout(saveText, 100);
 
     if (evt.altKey) {
-      var k = evt.key;
-      if (k in letters) {
-        putAtCursor(letters[k], false);
+      var key = evt.key;
+      if (key in letters) {
+        putAtCursor(letters[key], false);
         return false;
       }
 
-      if (k in combining) {
+      if (key in combining) {
         var prev = inp.value[inp.selectionStart - 1];
-        if (prev in combining[k]) {
-          putAtCursor(combining[k][prev], true);
+        if (prev in combining[key]) {
+          putAtCursor(combining[key][prev], true);
           return false;
         }
       }
     } else if (!evt.ctrlKey && !evt.metaKey){
       if (evt.key == "e" || evt.key == "E") {
-        var prev = getPrev();
-        if (prev == "A") {
-          putAtCursor("Æ", true);
-          return false;
-        } else if (prev == "a") {
-          putAtCursor("æ", true);
+        var c = {"A": "Æ", "a": "æ"}[getPrev()];
+        if (c) {
+          putAtCursor(c, true);
           return false;
         }
       }

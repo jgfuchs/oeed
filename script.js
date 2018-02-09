@@ -28,21 +28,6 @@ window.onload = function() {
     inp.value = window.localStorage.text;
   }
 
-  function putAtCursor(c, replace) {
-    var pos = inp.selectionStart,
-        end = inp.selectionEnd;
-
-    if (replace) {
-      if (pos != end) {
-        return;
-      }
-      pos -= 1;
-    }
-
-    inp.value = inp.value.slice(0, pos) + c + inp.value.slice(end);
-    inp.setSelectionRange(pos+1, pos+1);
-  }
-
   var tout = null;
 
   inp.onkeydown = function(evt) {
@@ -65,8 +50,38 @@ window.onload = function() {
           return false;
         }
       }
+    } else if (!evt.ctrlKey && !evt.metaKey){
+      if (evt.key == "e" || evt.key == "E") {
+        var prev = getPrev();
+        if (prev == "A") {
+          putAtCursor("Æ", true);
+          return false;
+        } else if (prev == "a") {
+          putAtCursor("æ", true);
+          return false;
+        }
+      }
     }
   };
+
+  function putAtCursor(c, replace) {
+    var pos = inp.selectionStart,
+        end = inp.selectionEnd;
+
+    if (replace) {
+      if (pos != end) {
+        return;
+      }
+      pos -= 1;
+    }
+
+    inp.value = inp.value.slice(0, pos) + c + inp.value.slice(end);
+    inp.setSelectionRange(pos+1, pos+1);
+  }
+
+  function getPrev() {
+    return inp.value[inp.selectionStart-1];
+  }
 
   function saveText() {
     window.localStorage.text = inp.value;

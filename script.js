@@ -54,7 +54,7 @@ window.onload = function() {
       }
 
       if (key in combining) {
-        var prev = inp.value[inp.selectionStart - 1];
+        var prev = getPrev();
         if (prev in combining[key]) {
           putAtCursor(combining[key][prev], true);
           return false;

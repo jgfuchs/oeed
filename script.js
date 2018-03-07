@@ -1,7 +1,6 @@
 var letters = {
   "D": "Ð",    "d": "ð",
   "T": "Þ",    "t": "þ",
-  "W": "Ƿ",    "w": "ƿ",
   "A": "Æ",    "a": "æ",
 };
 
@@ -28,7 +27,17 @@ var combining = {
     "G": "Ġ",    "g": "ġ",
     "C": "Ċ",    "c": "ċ",
   },
-}
+};
+
+var insular = [
+  ["W", "Ƿ"], ["w", "ƿ"],
+  ["T", "Ꞇ"], ["t", "ꞇ"],
+  ["D", "Ꝺ"], ["d", "ꝺ"],
+  ["F", "Ꝼ"], ["f", "ꝼ"],
+  ["G", "Ᵹ"], ["g", "ᵹ"],
+  ["S", "Ꞅ"], ["s", "ꞅ"],
+  ["R", "Ꞃ"], ["r", "ꞃ"],
+];
 
 window.onload = function() {
   var inp = document.getElementById("inp"),
@@ -44,7 +53,7 @@ window.onload = function() {
     if (tout) {
       clearTimeout(tout);
     }
-    tout = setTimeout(() => { window.localStorage.text = inp.value; }, 200);
+    tout = setTimeout(saveText, 200);
 
     if (evt.altKey) {
       var key = evt.key;
@@ -90,3 +99,27 @@ window.onload = function() {
     return inp.value[inp.selectionStart-1];
   }
 };
+
+function saveText() {
+  window.localStorage.text = inp.value;
+}
+
+function insularize() {
+  var t = inp.value;
+  for (var i = 0; i < insular.length; i++) {
+    var p = insular[i];
+    t = t.replace(new RegExp(p[0], "g"), p[1]);
+  }
+  inp.value = t;
+  saveText();
+}
+
+function deinsularize() {
+  var t = inp.value;
+  for (var i = 0; i < insular.length; i++) {
+    var p = insular[i];
+    t = t.replace(new RegExp(p[1], "g"), p[0]);;
+  }
+  inp.value = t;
+  saveText();
+}

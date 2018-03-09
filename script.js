@@ -38,6 +38,7 @@ var insular = [
   ["G", "Ᵹ"], ["g", "ᵹ"],
   ["S", "Ꞅ"], ["s", "ꞅ"],
   ["R", "Ꞃ"], ["r", "ꞃ"],
+  ["i", "ı"],
 ];
 
 window.onload = function() {
@@ -105,21 +106,11 @@ function saveText() {
   window.localStorage.text = inp.value;
 }
 
-function insularize() {
+function insularize(mode) {
   var t = inp.value;
   for (var i = 0; i < insular.length; i++) {
     var p = insular[i];
-    t = t.replace(new RegExp(p[0], "g"), p[1]);
-  }
-  inp.value = t;
-  saveText();
-}
-
-function deinsularize() {
-  var t = inp.value;
-  for (var i = 0; i < insular.length; i++) {
-    var p = insular[i];
-    t = t.replace(new RegExp(p[1], "g"), p[0]);;
+    t = t.replace(new RegExp(p[mode], "g"), p[1 - mode]);
   }
   inp.value = t;
   saveText();

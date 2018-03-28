@@ -1,0 +1,13 @@
+#inp {
+    padding: 6px;
+    font-size: 125%;
+}
+
+table {
+    border: 1px solid #555;
+}
+
+td {
+    border: 1px solid #888;
+    padding: 6px 8px 6px 8px;
+}

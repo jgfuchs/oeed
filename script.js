@@ -116,20 +116,3 @@ function insularize(mode) {
   inp.value = t;
   saveText();
 }
-
-var helpVisible = false;
-
-function toggleHelp() {
-  var helpDiv = document.getElementById("help"),
-      helpLink = document.getElementById("helpLink");
-
-  if (helpVisible) {
-    helpDiv.style.display = "none";
-    helpLink.innerHTML = "Show help";
-    helpVisible = false;
-  } else {
-    helpDiv.style.display = "block";
-    helpLink.innerHTML = "Hide help";
-    helpVisible = true;
-  }
-}

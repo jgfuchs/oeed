@@ -1,4 +1,5 @@
 <html>
+
 <head>
   <title>Old English Editor</title>
   <style>
@@ -6,15 +7,63 @@
       padding: 6px;
       font-size: 125%;
     }
+
+    #help {
+      display: none;
+    }
+
+    #help table {
+      border: 1px solid #555;
+    }
+
+    #help td {
+      border: 1px solid #888;
+      padding: 6px 8px 6px 8px;
+    }
   </style>
 </head>
 
 <body>
   <h2>oeed</h2>
   <textarea id="inp" rows=24 cols=80 autofocus spellcheck="false"></textarea>
-  <br/><br/>
+
+  <br/>
+  <br/>
   <button onclick="insularize(0)">Insularize</button>
   <button onclick="insularize(1)">Deinsularize</button>
+
+  <br/>
+  <br/>
+  <a href="#" onclick="toggleHelp()" id="helpLink">Show help</a>
+  <div id="help">
+    <h2>Help!</h2>
+
+    <p>Keyboard shortcuts (+Shift for capital form):</p>
+    <table cols=2>
+      <tr>
+        <td>Alt-a</td>
+        <td>Æ æ</td>
+      </tr>
+      <tr>
+        <td>Alt-d</td>
+        <td>Ð ð</td>
+      </tr>
+      <tr>
+        <td>Alt-t</td>
+        <td>Þ þ</td>
+      </tr>
+      <tr>
+        <td>Alt-w</td>
+        <td>Ƿ ƿ</td>
+      </tr>
+      <tr>
+        <td>Alt-e</td>
+        <td>⁊</td>
+      </tr>
+    </table>
+  </div>
+
   <script src="script.js" type="text/javascript" charset="utf-8"></script>
 </body>
+
 </html>

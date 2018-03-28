@@ -11,14 +11,25 @@ textarea {
 }
 
 table {
-    border: 1px solid #555;
+    border-collapse: collapse;
+    text-align: left;   
 }
 
-td {
-    border: 1px solid #888;
-    padding: 6px 8px 6px 8px;
+tbody tr:nth-child(odd) {
+    background-color: #eee;
+}
+
+td, th {
+    padding: 8px 8px 8px 8px;
 }
 
 .tools {
     margin: 1em 0 1em 0;
+}
+
+.key {
+    border: 1px solid #999;
+    border-radius: 2px;
+    padding: 3px 4px 3px 4px;
+    margin: 0 2px 0 2px;
 }

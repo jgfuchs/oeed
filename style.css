@@ -12,7 +12,7 @@ textarea {
 
 table {
     border-collapse: collapse;
-    text-align: left;   
+    text-align: left;
 }
 
 tbody tr:nth-child(odd) {

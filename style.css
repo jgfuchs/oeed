@@ -33,3 +33,17 @@ td, th {
     padding: 3px 4px 3px 4px;
     margin: 0 2px 0 2px;
 }
+
+.header {
+    margin-bottom: .5em;
+}
+
+.header h2 {
+    display: inline;
+}
+
+.header #helplink {
+    float: right;
+    margin-top: .25em;
+    font-size: 120%;
+}

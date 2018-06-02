@@ -6,14 +6,17 @@
 </head>
 
 <body>
-  <h2>Old English Editor</h2>
+  <div class="header">
+    <h2>Old English Editor</h2>
+    <a href="help.html" target="_blank" id="helplink">Help!</a>
+  </div>
+
   <textarea id="inp" rows=24 autofocus spellcheck="false"></textarea>
   <div class="tools">
     <button onclick="insularize(0)">Insularize</button>
     <button onclick="insularize(1)">Deinsularize</button>
     <button onclick="removeDiacritics(1)">Remove diacritics</button>
   </div>
-  <a href="help.html" target="_blank">Help</a>
   <script src="script.js" type="text/javascript" charset="utf-8"></script>
 </body>
 

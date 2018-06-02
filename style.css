@@ -42,8 +42,8 @@ td, th {
     display: inline;
 }
 
-.header #helplink {
+.header a {
     float: right;
-    margin-top: .25em;
+    margin: 0.25em 0 0 .5em;
     font-size: 120%;
 }
